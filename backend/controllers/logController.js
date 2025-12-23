@@ -1,7 +1,7 @@
 import { readLogs, writeLogs } from "../utills/fileDb.js";
 import filterLogs from "../utills/filterLogs.js";
 
-export const createLog = (req, res) => {
+export const createLog = async (req, res) => {
   try {
     const requiredFields = [
       "level",
@@ -46,9 +46,9 @@ export const createLog = (req, res) => {
       return res.status(400).json({ error: "metadata must be a JSON object" });
     }
 
-    const logs = readLogs();
+    const logs = await readLogs();
     logs.push(req.body);
-    writeLogs(logs);
+    await writeLogs(logs);
 
     // Emit new log to connected clients
     const io = req.app.get('io');
@@ -61,9 +61,9 @@ export const createLog = (req, res) => {
   }
 };
 
-export const getLogs = (req, res) => {
+export const getLogs = async (req, res) => {
   try {
-    let logs = readLogs();
+    let logs = await readLogs();
 
     logs = filterLogs(logs, req.query);
 

@@ -1,4 +1,4 @@
-import fs from "fs";
+import fs from "fs/promises";
 import path from "path";
 import { fileURLToPath } from "url";
 
@@ -7,15 +7,18 @@ const __dirname = path.dirname(__filename);
 
 const DB_PATH = path.join(__dirname, "../data/logs.json");
 
-export const readLogs = () => {
-  if (!fs.existsSync(DB_PATH)) {
-    fs.writeFileSync(DB_PATH, JSON.stringify([]));
+export const readLogs = async () => {
+  try {
+    await fs.access(DB_PATH);
+  } catch {
+    await fs.writeFile(DB_PATH, JSON.stringify([]));
   }
-  return JSON.parse(fs.readFileSync(DB_PATH, "utf-8"));
+  const data = await fs.readFile(DB_PATH, "utf-8");
+  return JSON.parse(data);
 };
 
-export const writeLogs = (logs) => {
-  fs.writeFileSync(DB_PATH, JSON.stringify(logs, null, 2));
+export const writeLogs = async (logs) => {
+  await fs.writeFile(DB_PATH, JSON.stringify(logs, null, 2));
 };
 
 export default {
