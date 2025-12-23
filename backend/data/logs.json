@@ -1,0 +1,76 @@
+[
+  {
+    "level": "error",
+    "message": "Failed to connect to database",
+    "resourceId": "server-1234",
+    "timestamp": "2023-09-15T08:00:00Z",
+    "traceId": "abc-xyz-123",
+    "spanId": "span-456",
+    "commit": "5e5342f",
+    "metadata": {
+      "parentResourceId": "server-0987"
+    }
+  },
+  {
+    "level": "info",
+    "message": "User logged in successfully",
+    "resourceId": "server-1234",
+    "timestamp": "2023-09-15T09:00:00Z",
+    "traceId": "def-uvw-456",
+    "spanId": "span-789",
+    "commit": "5e5342f",
+    "metadata": {
+      "userId": "user-123"
+    }
+  },
+  {
+    "level": "warn",
+    "message": "High memory usage detected",
+    "resourceId": "server-5678",
+    "timestamp": "2023-09-15T10:00:00Z",
+    "traceId": "ghi-opq-789",
+    "spanId": "span-012",
+    "commit": "5e5342f",
+    "metadata": {
+      "memoryUsage": "85%"
+    }
+  },
+  {
+    "level": "error",
+    "message": "Sample error log for testing",
+    "resourceId": "server-1234",
+    "timestamp": "2025-12-22T09:35:31.154Z",
+    "traceId": "abc-xyz-123",
+    "spanId": "span-456",
+    "commit": "5e5342f",
+    "metadata": {
+      "userId": "user-123"
+    }
+  },
+  {
+    "level": "info",
+    "message": "User login successful",
+    "resourceId": "auth-service",
+    "timestamp": "2025-12-23T10:30:00Z",
+    "traceId": "ghi-jkl-789",
+    "spanId": "span-012",
+    "commit": "e4f5g6h",
+    "metadata": {
+      "userId": "user-12345",
+      "ipAddress": "192.168.1.1"
+    }
+  },
+  {
+    "level": "debug",
+    "message": "Processing request with ID req-999",
+    "resourceId": "api-gateway",
+    "timestamp": "2025-12-23T11:45:00Z",
+    "traceId": "mno-pqr-101",
+    "spanId": "span-345",
+    "commit": "i7j8k9l",
+    "metadata": {
+      "requestId": "req-999",
+      "processingTime": "150ms"
+    }
+  }
+]
